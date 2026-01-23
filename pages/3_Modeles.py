@@ -14,9 +14,9 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 st.set_page_config(page_title="Modèles - ChurnGuard", layout="wide")
 
-# ============================================================================
+  
 # GÉNÉRATION DES DONNÉES
-# ============================================================================
+  
 
 @st.cache_data
 def load_data():
@@ -74,9 +74,9 @@ def train_models(_X_train, _y_train):
     
     return trained, scaler
 
-# ============================================================================
+  
 # PAGE
-# ============================================================================
+  
 
 st.title("Modèles de Machine Learning")
 st.markdown("Entraînement, évaluation et comparaison des modèles")

@@ -10,9 +10,9 @@ import plotly.express as px
 
 st.set_page_config(page_title="Analyse - ChurnGuard", layout="wide")
 
-# ============================================================================
+  
 # GÉNÉRATION DES DONNÉES
-# ============================================================================
+  
 
 @st.cache_data
 def load_data():
@@ -52,9 +52,9 @@ def load_data():
     
     return df
 
-# ============================================================================
+  
 # PAGE
-# ============================================================================
+  
 
 st.title("Analyse Exploratoire")
 st.markdown("Exploration des facteurs de churn et relations entre variables")

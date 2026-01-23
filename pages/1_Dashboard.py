@@ -9,9 +9,9 @@ import plotly.graph_objects as go
 
 st.set_page_config(page_title="Dashboard - ChurnGuard", layout="wide")
 
-# ============================================================================
+  
 # GÉNÉRATION DES DONNÉES
-# ============================================================================
+  
 
 @st.cache_data
 def load_data():
@@ -52,9 +52,9 @@ def load_data():
     
     return df
 
-# ============================================================================
+  
 # PAGE
-# ============================================================================
+  
 
 st.title("Dashboard")
 st.markdown("Vue d'ensemble des données clients et indicateurs clés")

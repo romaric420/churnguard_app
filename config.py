@@ -1,12 +1,11 @@
 """
 ChurnGuard - Configuration et Constantes
-=========================================
 Fichier centralisant toutes les configurations de l'application
 """
 
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
 # INFORMATIONS PROJET
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
 
 APP_NAME = "ChurnGuard"
 APP_ICON = "🛡️"
@@ -14,9 +13,9 @@ APP_DESCRIPTION = "Système de Prédiction d'Attrition Client par Machine Learni
 AUTHOR = "Romaric TCHOFFO"
 VERSION = "1.0.0"
 
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
 # COULEURS ET THEME
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
 
 COLORS = {
     'primary': '#667eea',
@@ -33,9 +32,9 @@ COLORS = {
 
 GRADIENT = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
 
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
 # CONFIGURATION DES DONNEES
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
 
 N_SAMPLES = 5000
 RANDOM_STATE = 42
@@ -69,9 +68,9 @@ COLUMN_LABELS = {
     'churn': 'Churn'
 }
 
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
 # CONFIGURATION DES MODELES
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
 
 MODELS_CONFIG = {
     'Régression Logistique': {
@@ -97,9 +96,9 @@ FEATURE_COLUMNS = [
     'payment_method_encoded', 'online_activity_encoded'
 ]
 
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
 # CSS PERSONNALISE
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
 
 CUSTOM_CSS = """
 <style>
@@ -241,9 +240,9 @@ CUSTOM_CSS = """
 </style>
 """
 
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
 # FONCTIONS UTILITAIRES
-# ═══════════════════════════════════════════════════════════════════════════════
+ 
 
 def format_number(value, decimals=0):
     """Formate un nombre avec séparateurs de milliers"""

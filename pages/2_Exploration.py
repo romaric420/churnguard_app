@@ -1,6 +1,6 @@
 """
 Exploration - ChurnGuard
-===========================
+
 Analyse exploratoire des données
 """
 
@@ -17,29 +17,29 @@ from utils.visualizations import (
     plot_histogram, plot_boxplot
 )
 
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 # CONFIGURATION
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 
 st.set_page_config(page_title="Exploration - ChurnGuard", layout="wide")
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 # HEADER
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 
 st.markdown('<h1 class="main-header"> Exploration des Données</h1>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Analyse univariée et multivariée des facteurs de churn</p>', unsafe_allow_html=True)
 
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 # CHARGEMENT DES DONNÉES
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 
 df = load_data()
 
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 # SIDEBAR - FILTRES
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 
 st.sidebar.header("Filtres")
 
@@ -66,9 +66,9 @@ st.sidebar.info(f"{len(df_filtered):,} clients analysés")
 
 st.markdown('<hr class="custom-divider">', unsafe_allow_html=True)
 
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 # ANALYSE UNIVARIÉE
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 
 st.markdown('<div class="section-header">Analyse Univariée</div>', unsafe_allow_html=True)
 
@@ -134,9 +134,9 @@ with tab2:
 
 st.markdown('<hr class="custom-divider">', unsafe_allow_html=True)
 
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 # ANALYSE MULTIVARIÉE
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 
 st.markdown('<div class="section-header">Analyse Multivariée</div>', unsafe_allow_html=True)
 
@@ -156,9 +156,9 @@ with col2:
 
 st.markdown('<hr class="custom-divider">', unsafe_allow_html=True)
 
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 # MATRICE DE CORRÉLATION
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 
 st.markdown('<div class="section-header">Matrice de Corrélation</div>', unsafe_allow_html=True)
 
@@ -177,9 +177,9 @@ st.markdown("""
 
 st.markdown('<hr class="custom-divider">', unsafe_allow_html=True)
 
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 # INSIGHTS
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 
 st.markdown('<div class="section-header">Insights Clés de l\'Exploration</div>', unsafe_allow_html=True)
 
@@ -209,9 +209,9 @@ with col3:
     - > 3 tickets support
     """)
 
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 # STATISTIQUES DESCRIPTIVES
-# ═══════════════════════════════════════════════════════════════════════════════
+  
 
 with st.expander("Statistiques Descriptives Complètes"):
     st.dataframe(df_filtered.describe().round(2), use_container_width=True)

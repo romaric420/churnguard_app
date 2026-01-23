@@ -13,9 +13,9 @@ from sklearn.neighbors import KNeighborsClassifier
 
 st.set_page_config(page_title="Prédiction - ChurnGuard", layout="wide")
 
-# ============================================================================
+  
 # GÉNÉRATION DES DONNÉES ET MODÈLES
-# ============================================================================
+  
 
 @st.cache_data
 def load_data():
@@ -95,9 +95,9 @@ def prepare_and_train():
     
     return models, scaler, label_encoders
 
-# ============================================================================
+  
 # PAGE
-# ============================================================================
+  
 
 st.title("Prédiction Individuelle")
 st.markdown("Estimez le risque de churn pour un client spécifique")
