@@ -113,13 +113,17 @@ churnguard/
 
 ### Installation locale
 
-# j'ai utiliser Poetry et Pyenv
-poetry : gestiion de l'environement et ajout des module
-pyenv: gestion de la version de python 
+
 
 ```bash
 # 1. Cloner ou extraire le projet
 cd churnguard
+
+# j'ai utiliser Poetry et Pyenv
+poetry : gestiion de l'environement et ajout des module
+pyenv: gestion de la version de python 
+
+##mais il y'a des personnes qui maitrise plutot ceci :
 
 # 2. Créer un environnement virtuel (recommandé)
 python -m venv venv
@@ -132,18 +136,14 @@ pip install -r requirements.txt
 
 # 4. Lancer l'application
 streamlit run app.py
-```
-
-L'application sera accessible sur **http://localhost:8501**
-
----
 
 ## Déploiement sur Streamlit Cloud
 
 1. Créer un compte sur [share.streamlit.io](https://share.streamlit.io)
 2. Connecter votre repository GitHub contenant le projet
 3. Sélectionner le fichier `app.py` comme point d'entrée
-4. Déployer
+4. Avancer pour plus de configurations (optionnel)
+5. Déployer
 
 Streamlit détectera automatiquement le fichier `requirements.txt`.
 
@@ -173,4 +173,4 @@ Streamlit détectera automatiquement le fichier `requirements.txt`.
 Projet Data Science - 2026
 
 ## Version 
-1.0.0# churnguard_app
+1.0.1# churnguard_app
