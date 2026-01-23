@@ -3,6 +3,7 @@ ChurnGuard - Prédiction d'Attrition Client
 Page d'accueil
 """
 
+from curses import COLORS
 import streamlit as st
 
 st.set_page_config(
@@ -157,3 +158,18 @@ st.markdown(
     "</div>",
     unsafe_allow_html=True
 )
+
+
+# Footer 
+st.markdown("---")
+st.markdown(f"""
+<div style="
+    background-color: {COLORS['primary']}; 
+    padding: 20px; 
+    border-radius: 10px; 
+    text-align: center;
+">
+    <p style="color: white; margin: 5px;">CHURNGUARD</p>
+    <p style="color: #ccc; font-size: 12px; margin: 5px;">© 2026 - Romaric</p>
+</div>
+""", unsafe_allow_html=True)
