@@ -2,30 +2,49 @@ name: Keep Streamlit Alive
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # Toutes les 4 heures
-  workflow_dispatch:  # Permet de lancer manuellement pour tester
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
 
 jobs:
   keep-alive:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Streamlit App
+      - name: Ping Streamlit App avec Debug
         run: |
-          echo "🔄 Tentative de ping de l'application..."
-          response=$(curl -L -s -o /dev/null -w "%{http_code}" \
-            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
-            -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" \
+          echo "🔄 Début du ping..."
+          echo "📍 URL cible: https://VOTRE-APP.streamlit.app"
+          
+          # Tentative avec affichage complet des erreurs
+          curl -v -L \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
             --max-time 30 \
-            --max-redirs 10 \
-            https://bank-churn-analysis-romaric.streamlit.app)
+            --max-redirs 5 \
+            https://VOTRE-APP.streamlit.app || echo "⚠️ Curl a échoué mais on continue"
           
-          echo "Code de réponse HTTP: $response"
-          
-          if [ $response -eq 200 ] || [ $response -eq 301 ] || [ $response -eq 302 ]; then
-            echo " Application accessible ! Code: $response"
-            exit 0
-          else
-            echo "⚠️ Code inattendu: $response"
-            echo "Vérifiez l'URL de votre application"
-            exit 0
-          fi
+          echo "✅ Workflow terminé"
+```
+
+**🚨 CHANGEZ `https://VOTRE-APP.streamlit.app`** par votre vraie URL !
+
+**Cette version :**
+- Affiche tous les détails de connexion (`-v`)
+- Continue même en cas d'erreur (`|| echo...`)
+- Ne bloque pas le workflow
+
+---
+
+## 🎯 MAIS HONNÊTEMENT : Utilisez UptimeRobot
+
+GitHub Actions a trop de problèmes pour ce cas d'usage. **UptimeRobot est LA solution** :
+
+### 🚀 Setup UptimeRobot (2 minutes chrono)
+
+1. **Allez sur [uptimerobot.com](https://uptimerobot.com)**
+2. **Sign Up** (gratuit, pas de carte bancaire)
+3. **Add New Monitor** (bouton en haut)
+4. Remplissez :
+```
+   Monitor Type: HTTP(s)
+   Friendly Name: Mon App Streamlit
+   URL: [COLLEZ ICI VOTRE URL STREAMLIT COMPLÈTE]
+   Monitoring Interval: 5 minutes
