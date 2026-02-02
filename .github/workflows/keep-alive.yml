@@ -2,19 +2,30 @@ name: Keep Streamlit Alive
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # Toutes les 4 heures (plus fréquent)
-  workflow_dispatch:
+    - cron: '0 */4 * * *'  # Toutes les 4 heures
+  workflow_dispatch:  # Permet de lancer manuellement pour tester
 
 jobs:
   keep-alive:
     runs-on: ubuntu-latest
     steps:
-      - name: Wake up Streamlit App
+      - name: Ping Streamlit App
         run: |
-          curl -L \
-            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
-            -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
-            -H "Accept-Language: en-US,en;q=0.5" \
-            -H "Cache-Control: no-cache" \
-            https://VOTRE-APP.streamlit.app > /dev/null 2>&1
-          echo "App visitée avec User-Agent navigateur"
+          echo "🔄 Tentative de ping de l'application..."
+          response=$(curl -L -s -o /dev/null -w "%{http_code}" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+            -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" \
+            --max-time 30 \
+            --max-redirs 10 \
+            https://bank-churn-analysis-romaric.streamlit.app)
+          
+          echo "Code de réponse HTTP: $response"
+          
+          if [ $response -eq 200 ] || [ $response -eq 301 ] || [ $response -eq 302 ]; then
+            echo " Application accessible ! Code: $response"
+            exit 0
+          else
+            echo "⚠️ Code inattendu: $response"
+            echo "Vérifiez l'URL de votre application"
+            exit 0
+          fi
